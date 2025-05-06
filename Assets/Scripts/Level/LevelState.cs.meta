@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 4d0e4f8ab65d6034eb726e8bc0ca07b3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - golfClubPrefab: {fileID: 1632468299356150981, guid: e14c85b5fc3daa243bd9a60cf49600e6,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
