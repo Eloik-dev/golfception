@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private LevelState levelState;
+    [SerializeField] private GameObject mainMenu;
 
     private float _initialHeight = 0f;
 
@@ -11,8 +12,8 @@ public class PlayerController : MonoBehaviour
         _initialHeight = transform.position.y;
     }
 
-    private void Update()
+    public void ToggleShowMenu()
     {
-        // transform.position = new Vector3(transform.position.x, _initialHeight + levelState.GameState.GetOffsetHeight(), transform.position.z);
+        mainMenu.SetActive(!mainMenu.activeSelf);
     }
 }

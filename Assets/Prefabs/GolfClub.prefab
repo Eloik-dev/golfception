@@ -78,15 +78,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0b81d23b41a8a8c468a3d542f39c781e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.005
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b81d23b41a8a8c468a3d542f39c781e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.005
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b81d23b41a8a8c468a3d542f39c781e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.005
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b81d23b41a8a8c468a3d542f39c781e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1863242556433729402, guid: 0b81d23b41a8a8c468a3d542f39c781e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -220,8 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba339db1099623f41af8f26f10614324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  leftController: {fileID: 0}
+  rightController: {fileID: 0}
   gameState: {fileID: 11400000, guid: ddff6f4f15b00e34cb985146688008de, type: 2}
+  body: {fileID: 3369395141348502104}
   positionSmoothTime: 0.01
   rotationSmoothTime: 0.03
 --- !u!54 &8024274431471718713
@@ -251,3 +257,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!1 &3369395141348502104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5430031003144320052, guid: 0b81d23b41a8a8c468a3d542f39c781e, type: 3}
+  m_PrefabInstance: {fileID: 1902446027176714644}
+  m_PrefabAsset: {fileID: 0}

@@ -8,10 +8,9 @@ public class BallController : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField] float maxSpeed = 10f;
+    [SerializeField] bool alwaysRespawnAtStart = false;
     [SerializeField] private LevelState levelState;
     [SerializeField] private Transform holeTransform;
-
-    private float respawnSensitivity = 0.3f;
     
     private AudioSource sonCoup;
 
@@ -83,7 +82,7 @@ public class BallController : MonoBehaviour
         // Vérifier si la collision est avec une zone de redémarrage
         if (collision.collider.CompareTag("RestartZone"))
         {
-            transform.position = lastHitPosition;
+            transform.position = alwaysRespawnAtStart ? initialPositionSinceStart : lastHitPosition;
             rb.linearVelocity = Vector3.zero;
             levelState.SetBallCooldown(true);
             return;

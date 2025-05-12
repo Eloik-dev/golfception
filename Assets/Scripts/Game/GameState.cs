@@ -1,4 +1,6 @@
+using Meta.XR.ImmersiveDebugger.UserInterface.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "GameState", menuName = "Scriptable Objects/GameState")]
@@ -6,8 +8,13 @@ public class GameState : ScriptableObject
 {
     private float _offsetHeight = 0;
     private Color _clubColor = Color.white;
+    private float _clubColorValue = 0;
+    public UnityEvent<float> OnMusicVolumeChanged = new UnityEvent<float>();
     private float _musicVolume = 0;
+    public UnityEvent<float> OnEffectsVolumeChanged = new UnityEvent<float>();
+    private float _effectsVolume = 0;
     private int _currentLevel = 0;
+    private bool _rightHanded = true;
 
     public void SynchronizeLevelNumber(int number)
     {
@@ -25,7 +32,8 @@ public class GameState : ScriptableObject
         }
         else
         {
-            Debug.LogError($"La scène '{scene}' n'existe pas dans les scènes du build.");
+            SceneManager.LoadScene("Menu");
+            //Debug.LogError($"La scï¿½ne '{scene}' n'existe pas dans les scï¿½nes du build.");
         }
     }
 
@@ -52,8 +60,13 @@ public class GameState : ScriptableObject
     public void SetClubColor(float value)
     {
         _clubColor = Color.HSVToRGB(value, 1f, 1f);
+        _clubColorValue = value;
     }
     
+    public float GetClubColorValue()
+    {
+        return _clubColorValue;
+    }
     public float GetMusiqueVolume()
     {
         return _musicVolume;
@@ -62,6 +75,28 @@ public class GameState : ScriptableObject
     public void SetMusiqueVolume(float value)
     {
         _musicVolume = value;
+        OnMusicVolumeChanged.Invoke(_musicVolume);
+    }
+    
+    public float GetEffectsVolume()
+    {
+        return _effectsVolume;
+    }
+    
+    public void SetEffectsVolume(float value)
+    {
+        _effectsVolume = value;
+        OnEffectsVolumeChanged.Invoke(_effectsVolume);
+    }
+
+    public bool GetRightHanded()
+    {
+        return _rightHanded;
+    }
+
+    public void ToggleRightHanded()
+    {
+        _rightHanded = !_rightHanded;
     }
 
     private void Reset()

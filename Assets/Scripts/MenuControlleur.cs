@@ -9,21 +9,26 @@ public class MenuControlleur : MonoBehaviour
     [SerializeField] private Slider curseurCouleur;
     [SerializeField] private Slider curseurHauteur;
     [SerializeField] private Slider curseurMusique;
+    [SerializeField] private Slider curseurEffets;
     [SerializeField] private GameState gameState;
 
     void Start()
     {
         // Applique la couleur initiale et écoute les changements du slider
         curseurCouleur.onValueChanged.AddListener(gameState.SetClubColor);
-        gameState.SetClubColor(curseurCouleur.value);
+        curseurCouleur.SetValueWithoutNotify(gameState.GetClubColorValue());
 
         // Écoute les changements du slider de hauteur
         curseurHauteur.onValueChanged.AddListener(gameState.SetOffsetHeight);
-        gameState.SetOffsetHeight(curseurHauteur.value);
+        curseurHauteur.SetValueWithoutNotify(gameState.GetOffsetHeight());
         
         // Écoute les changements du slider de musique
         curseurMusique.onValueChanged.AddListener(gameState.SetMusiqueVolume);
-        gameState.SetMusiqueVolume(curseurMusique.value);
+        curseurMusique.SetValueWithoutNotify(gameState.GetMusiqueVolume());
+
+        // Écoute les changements du slider des effets
+        curseurEffets.onValueChanged.AddListener(gameState.SetEffectsVolume);
+        curseurEffets.SetValueWithoutNotify(gameState.GetEffectsVolume());
 
         // Préparer les boutons
         foreach (Button bouton in boutonsNiveaux)

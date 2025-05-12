@@ -20,7 +20,8 @@ public class TeleportationBas : MonoBehaviour
 
         if (son != null && audioSource != null)
         {
-            audioSource.PlayOneShot(son);
+            audioSource.resource = son;
+            audioSource.Play();
         }
     }
 }
